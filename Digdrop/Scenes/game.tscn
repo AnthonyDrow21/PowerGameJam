@@ -673,3 +673,5 @@ libraries = {
 "": SubResource("AnimationLibrary_4tojn")
 }
 autoplay = "move"
+
+[connection signal="playerDied" from="Player" to="." method="_on_player_player_died"]
