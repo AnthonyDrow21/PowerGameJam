@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c43t5k28u317k"]
+[gd_scene load_steps=16 format=3 uid="uid://c43t5k28u317k"]
 
 [ext_resource type="PackedScene" uid="uid://bmt61wmrddcon" path="res://Scenes/player.tscn" id="1_q4jyq"]
 [ext_resource type="Texture2D" uid="uid://dkrbvn8oprm6c" path="res://Assets/sprites/world_tileset.png" id="2_ygxb5"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://cm1dcjocagk1h" path="res://Scenes/coin.tscn" id="5_iyqv5"]
 [ext_resource type="PackedScene" uid="uid://cdobh1cyly5vm" path="res://Scenes/killzone.tscn" id="6_24te3"]
 [ext_resource type="PackedScene" uid="uid://c3bbdmlwkunbe" path="res://Scenes/slime.tscn" id="7_g1ysq"]
+[ext_resource type="PackedScene" uid="uid://dppkntdwnkib2" path="res://Scenes/UI/HUD.tscn" id="8_rp3cy"]
+[ext_resource type="PackedScene" uid="uid://djcc82nt621wc" path="res://Scenes/BatteryPack.tscn" id="8_xjc4k"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eydrm"]
 texture = ExtResource("2_ygxb5")
@@ -520,3 +522,11 @@ position = Vector2(395, 140)
 
 [node name="slime" parent="." instance=ExtResource("7_g1ysq")]
 position = Vector2(168, 276)
+
+[node name="Batteries" type="Node2D" parent="."]
+position = Vector2(0, -1)
+
+[node name="BatteryPack" parent="Batteries" instance=ExtResource("8_xjc4k")]
+position = Vector2(360, 167)
+
+[node name="Hud" parent="." instance=ExtResource("8_rp3cy")]

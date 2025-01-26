@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://dppkntdwnkib2"]
+
+[ext_resource type="Script" path="res://Scenes/UI/HUD.gd" id="1_p1y8c"]
+
+[sub_resource type="Gradient" id="Gradient_qa1a4"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ypbj0"]
+gradient = SubResource("Gradient_qa1a4")
+width = 200
+height = 25
+
+[sub_resource type="Gradient" id="Gradient_vscm7"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.960784, 0.843137, 0.411765, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8g3de"]
+gradient = SubResource("Gradient_vscm7")
+width = 200
+height = 25
+
+[node name="Hud" type="CanvasLayer"]
+script = ExtResource("1_p1y8c")
+
+[node name="DrillEnergy" type="TextureProgressBar" parent="."]
+offset_right = 200.0
+offset_bottom = 25.0
+texture_under = SubResource("GradientTexture2D_ypbj0")
+texture_progress = SubResource("GradientTexture2D_8g3de")
+
+[node name="EnergyTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="EnergyTimer" to="." method="_on_energy_timer_timeout"]

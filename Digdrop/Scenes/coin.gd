@@ -1,5 +1,6 @@
 extends Area2D
 
 func _on_body_entered(body):
-	print("+1 Coin!")
+	print("Coin Gained")
+	PlayerStats.CoinCount = PlayerStats.CoinCount + 1;
 	queue_free()
