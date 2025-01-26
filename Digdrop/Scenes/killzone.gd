@@ -1,12 +1,12 @@
 extends Area2D
 
-@onready var timer = $Timer
 
 func _on_body_entered(body):
-	print("You died!")
-	timer.start()
+	
+	var player = get_tree().get_nodes_in_group("Player")[0];
+	
+	# Only kill the player if they are not dead. We don't want to call the function multiple times.
+	if(player.getIsDead() == false):
+		print("You died!")
+		player.PlayerDied();
 	pass # Replace with function body.
-
-
-func _on_timer_timeout():
-	get_tree().reload_current_scene()

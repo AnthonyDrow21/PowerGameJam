@@ -42,7 +42,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_koidx"]
 radius = 5.0
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 position = Vector2(170, 101)
 collision_layer = 2
 script = ExtResource("1_55exo")
@@ -58,3 +58,7 @@ frame_progress = 0.900849
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -5)
 shape = SubResource("CircleShape2D_koidx")
+
+[node name="DeathTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]

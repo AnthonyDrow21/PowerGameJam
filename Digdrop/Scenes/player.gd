@@ -1,8 +1,11 @@
 extends CharacterBody2D
 
+signal playerDied;
 
 const SPEED = 130.0
 const JUMP_VELOCITY = -300.0
+
+var isDead = false;
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -26,3 +29,16 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+
+func getIsDead():
+	return isDead;
+
+func PlayerDied():
+	# Play the death animation of the player.
+	isDead = true;
+	$DeathTimer.start()
+	pass;
+
+func _on_death_timer_timeout() -> void:
+	playerDied.emit()
+	get_tree().reload_current_scene()

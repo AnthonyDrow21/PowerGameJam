@@ -1,5 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://c43t5k28u317k"]
+[gd_scene load_steps=17 format=3 uid="uid://c43t5k28u317k"]
 
+[ext_resource type="Script" path="res://Scenes/Main.gd" id="1_72nvc"]
 [ext_resource type="PackedScene" uid="uid://bmt61wmrddcon" path="res://Scenes/player.tscn" id="1_q4jyq"]
 [ext_resource type="Texture2D" uid="uid://dkrbvn8oprm6c" path="res://Assets/sprites/world_tileset.png" id="2_ygxb5"]
 [ext_resource type="Script" path="res://Scenes/TileMap.gd" id="3_hwlb8"]
@@ -454,6 +455,7 @@ _data = {
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_y1561"]
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_72nvc")
 
 [node name="TileMap" type="TileMap" parent="."]
 y_sort_enabled = true
@@ -530,3 +532,5 @@ position = Vector2(0, -1)
 position = Vector2(360, 167)
 
 [node name="Hud" parent="." instance=ExtResource("8_rp3cy")]
+
+[connection signal="playerDied" from="Player" to="." method="_on_player_player_died"]
