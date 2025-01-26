@@ -13,7 +13,7 @@ func _process(delta):
 		direction = -1
 	if ray_cast_left.is_colliding():
 		direction = 1
-	
-	
-	
+
 	position.x += SPEED * delta * direction
+	
+	

@@ -3,14 +3,17 @@
 [ext_resource type="Texture2D" uid="uid://b0twd7no82dr5" path="res://Assets/sprites/platforms.png" id="1_rw1qi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_epshe"]
-size = Vector2(32, 8)
+size = Vector2(76, 8)
 
-[node name="platform" type="AnimatableBody2D"]
+[node name="drill" type="AnimatableBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-0.999999, 0)
+scale = Vector2(2.375, 1)
 texture = ExtResource("1_rw1qi")
 region_enabled = true
 region_rect = Rect2(16, 0, 32, 9)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_epshe")

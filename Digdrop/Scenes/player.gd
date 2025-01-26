@@ -42,3 +42,4 @@ func PlayerDied():
 func _on_death_timer_timeout() -> void:
 	playerDied.emit()
 	get_tree().reload_current_scene()
+
