@@ -1,11 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://dt1np5ya1dx41"]
+[gd_scene load_steps=5 format=3 uid="uid://dt1np5ya1dx41"]
 
+[ext_resource type="Script" path="res://Scenes/platform.gd" id="1_1pijf"]
 [ext_resource type="Texture2D" uid="uid://b0twd7no82dr5" path="res://Assets/sprites/platforms.png" id="1_rw1qi"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yyh5r"]
+size = Vector2(76, 6)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_epshe"]
-size = Vector2(76, 8)
+size = Vector2(10.2262, 8.1427)
 
 [node name="drill" type="AnimatableBody2D"]
+script = ExtResource("1_1pijf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_yyh5r")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-0.999999, 0)
@@ -14,6 +23,26 @@ texture = ExtResource("1_rw1qi")
 region_enabled = true
 region_rect = Rect2(16, 0, 32, 9)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 0)
+[node name="DrillBits" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="DrillBits"]
+position = Vector2(28, 0)
 shape = SubResource("RectangleShape2D_epshe")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="DrillBits"]
+position = Vector2(14, 0)
+shape = SubResource("RectangleShape2D_epshe")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="DrillBits"]
+position = Vector2(-14, 0)
+shape = SubResource("RectangleShape2D_epshe")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="DrillBits"]
+position = Vector2(-29, 0)
+shape = SubResource("RectangleShape2D_epshe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DrillBits"]
+shape = SubResource("RectangleShape2D_epshe")
+
+[connection signal="body_entered" from="DrillBits" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="DrillBits" to="." method="_on_drill_bits_body_exited"]
