@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://4gjndtnqkvqs"]
+
+[ext_resource type="Texture2D" uid="uid://cfsms8i0onaxy" path="res://Assets/sprites/jetpack.png" id="1_g24rw"]
+[ext_resource type="Script" path="res://Scenes/JetPack.gd" id="1_sqalt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4oclm"]
+
+[node name="JetPack" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_sqalt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("1_g24rw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_4oclm")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
