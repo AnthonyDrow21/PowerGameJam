@@ -1,0 +1,100 @@
+[gd_scene load_steps=15 format=3 uid="uid://dbontnjvc1pkx"]
+
+[ext_resource type="Script" path="res://Scenes/Tools/DeployableBox.gd" id="1_bs2vb"]
+[ext_resource type="Texture2D" uid="uid://dedmwohpv47ny" path="res://Assets/sprites/Minerman-Adventure/items/box.png" id="2_nawbe"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dedxk"]
+atlas = ExtResource("2_nawbe")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rt3rp"]
+atlas = ExtResource("2_nawbe")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_abwea"]
+atlas = ExtResource("2_nawbe")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v48p3"]
+atlas = ExtResource("2_nawbe")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ldwwu"]
+atlas = ExtResource("2_nawbe")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mir3o"]
+atlas = ExtResource("2_nawbe")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ntcg7"]
+atlas = ExtResource("2_nawbe")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wtsr7"]
+atlas = ExtResource("2_nawbe")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g4b7q"]
+atlas = ExtResource("2_nawbe")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cnmu1"]
+atlas = ExtResource("2_nawbe")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_io51y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dedxk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rt3rp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_abwea")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v48p3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ldwwu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mir3o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ntcg7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wtsr7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g4b7q")
+}],
+"loop": true,
+"name": &"Animated",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cnmu1")
+}],
+"loop": true,
+"name": &"Static",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r2g3q"]
+size = Vector2(22, 22)
+
+[node name="DeployableBox" type="Area2D"]
+script = ExtResource("1_bs2vb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_io51y")
+animation = &"Static"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_r2g3q")

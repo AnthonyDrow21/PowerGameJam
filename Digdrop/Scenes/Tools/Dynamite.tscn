@@ -1,0 +1,88 @@
+[gd_scene load_steps=14 format=3 uid="uid://dvoecfm2je7h3"]
+
+[ext_resource type="Script" path="res://Scenes/Tools/Dynamite.gd" id="1_s6f30"]
+[ext_resource type="Texture2D" uid="uid://3ij7dghn7bsq" path="res://Assets/sprites/Minerman-Adventure/items/dynamite-pack.png" id="2_wg6qc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s67ml"]
+atlas = ExtResource("2_wg6qc")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tsiqt"]
+atlas = ExtResource("2_wg6qc")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_65e76"]
+atlas = ExtResource("2_wg6qc")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ihrd5"]
+atlas = ExtResource("2_wg6qc")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_veqfx"]
+atlas = ExtResource("2_wg6qc")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s1qfv"]
+atlas = ExtResource("2_wg6qc")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_it4ql"]
+atlas = ExtResource("2_wg6qc")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w8x1b"]
+atlas = ExtResource("2_wg6qc")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jsad6"]
+atlas = ExtResource("2_wg6qc")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v0hv5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s67ml")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tsiqt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_65e76")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ihrd5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_veqfx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s1qfv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_it4ql")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w8x1b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jsad6")
+}],
+"loop": true,
+"name": &"Edging",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ifwkt"]
+
+[node name="Dynamite" type="Area2D"]
+script = ExtResource("1_s6f30")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_v0hv5")
+animation = &"Edging"
+frame_progress = 0.527171
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ifwkt")
