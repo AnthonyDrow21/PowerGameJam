@@ -42,6 +42,10 @@ func _physics_process(delta):
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+	
+	# Game over if the drill runs out of energy.
+	if(PlayerStats.DrillEnergy == 0.0):
+		PlayerDied();
 
 	move_and_slide()
 
