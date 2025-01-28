@@ -1,17 +1,17 @@
 [gd_scene load_steps=4 format=3 uid="uid://4gjndtnqkvqs"]
 
-[ext_resource type="Texture2D" uid="uid://cfsms8i0onaxy" path="res://Assets/sprites/jetpack.png" id="1_g24rw"]
-[ext_resource type="Script" path="res://Scenes/JetPack.gd" id="1_sqalt"]
+[ext_resource type="Script" path="res://Scenes/Tools/JetPack.gd" id="1_8q1qc"]
+[ext_resource type="Texture2D" uid="uid://cfsms8i0onaxy" path="res://Assets/sprites/jetpack.png" id="2_j4hy6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4oclm"]
 
 [node name="JetPack" type="Area2D"]
 collision_mask = 2
-script = ExtResource("1_sqalt")
+script = ExtResource("1_8q1qc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.06, 0.06)
-texture = ExtResource("1_g24rw")
+texture = ExtResource("2_j4hy6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_4oclm")

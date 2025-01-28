@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dppkntdwnkib2" path="res://Scenes/UI/HUD.tscn" id="8_rp3cy"]
 [ext_resource type="PackedScene" uid="uid://djcc82nt621wc" path="res://Scenes/BatteryPack.tscn" id="8_xjc4k"]
 [ext_resource type="Texture2D" uid="uid://b0twd7no82dr5" path="res://Assets/sprites/platforms.png" id="10_yigkr"]
-[ext_resource type="PackedScene" uid="uid://4gjndtnqkvqs" path="res://Scenes/JetPack.tscn" id="12_i4hvk"]
+[ext_resource type="PackedScene" uid="uid://4gjndtnqkvqs" path="res://Scenes/Tools/JetPack.tscn" id="12_i4hvk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eydrm"]
 texture = ExtResource("2_ygxb5")
