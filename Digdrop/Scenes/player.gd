@@ -12,6 +12,8 @@ var isDead = false;
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+const deployedBox = preload("res://Scenes/Tools/DeployedBox.tscn");
+@onready var game = get_tree().get_root();
 
 func _ready() -> void:
 	for item in PlayerStats.Items:
@@ -20,6 +22,21 @@ func _ready() -> void:
 			MAX_JUMPS = 2;
 
 func _physics_process(delta):
+	handleMovement(delta);
+	
+	if(Input.is_action_just_pressed("UseItem")):
+		# Use the current active item.
+		var newBox = deployedBox.instantiate();
+		newBox.global_position = self.position;
+		game.add_child(newBox);
+	
+	# Game over if the drill runs out of energy.
+	if(PlayerStats.DrillEnergy == 0.0):
+		PlayerDied();
+	
+	move_and_slide()
+
+func handleMovement(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -41,12 +58,6 @@ func _physics_process(delta):
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-	
-	# Game over if the drill runs out of energy.
-	if(PlayerStats.DrillEnergy == 0.0):
-		PlayerDied();
-
-	move_and_slide()
 
 func getIsDead():
 	return isDead;

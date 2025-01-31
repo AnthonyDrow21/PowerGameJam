@@ -90,6 +90,7 @@ animations = [{
 size = Vector2(22, 22)
 
 [node name="DeployableBox" type="Area2D"]
+collision_mask = 2
 script = ExtResource("1_bs2vb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -98,3 +99,5 @@ animation = &"Static"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_r2g3q")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
