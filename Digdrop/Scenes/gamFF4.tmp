@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://c43t5k28u317k"]
+[gd_scene load_steps=26 format=3 uid="uid://c43t5k28u317k"]
 
 [ext_resource type="Script" path="res://Scenes/Main.gd" id="1_72nvc"]
 [ext_resource type="PackedScene" uid="uid://bmt61wmrddcon" path="res://Scenes/player.tscn" id="1_q4jyq"]
@@ -13,7 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://b0twd7no82dr5" path="res://Assets/sprites/platforms.png" id="10_yigkr"]
 [ext_resource type="PackedScene" uid="uid://4gjndtnqkvqs" path="res://Scenes/Tools/JetPack.tscn" id="12_i4hvk"]
 [ext_resource type="PackedScene" uid="uid://dbontnjvc1pkx" path="res://Scenes/Tools/DeployableBox.tscn" id="13_hugqj"]
-[ext_resource type="PackedScene" uid="uid://bhtj7uery2q4n" path="res://Scenes/Enemy/Greenslime.tscn" id="14_84avc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eydrm"]
 texture = ExtResource("2_ygxb5")
@@ -578,28 +577,22 @@ position = Vector2(-23, 258)
 [node name="BatteryPack3" parent="Batteries" instance=ExtResource("8_xjc4k")]
 position = Vector2(632, 343)
 
-[node name="Greenslimes" type="Node2D" parent="."]
+[node name="Slimes" type="Node2D" parent="."]
 
-[node name="Greenslime" parent="Greenslimes" instance=ExtResource("14_84avc")]
-position = Vector2(168, 284)
+[node name="slime" parent="Slimes" instance=ExtResource("7_g1ysq")]
+position = Vector2(168, 276)
 
-[node name="Greenslime2" parent="Greenslimes" instance=ExtResource("14_84avc")]
-position = Vector2(392, 332)
+[node name="slime2" parent="Slimes" instance=ExtResource("7_g1ysq")]
+position = Vector2(408, 324)
 
-[node name="Greenslime3" parent="Greenslimes" instance=ExtResource("14_84avc")]
-position = Vector2(504, 364)
+[node name="slime3" parent="Slimes" instance=ExtResource("7_g1ysq")]
+position = Vector2(460, 356)
 
-[node name="Greenslime4" parent="Greenslimes" instance=ExtResource("14_84avc")]
-position = Vector2(456, 364)
+[node name="slime4" parent="Slimes" instance=ExtResource("7_g1ysq")]
+position = Vector2(411, 533)
 
-[node name="Greenslime5" parent="Greenslimes" instance=ExtResource("14_84avc")]
-position = Vector2(408, 540)
-
-[node name="Greenslime6" parent="Greenslimes" instance=ExtResource("14_84avc")]
-position = Vector2(472, 540)
-
-[node name="Greenslime7" parent="Greenslimes" instance=ExtResource("14_84avc")]
-position = Vector2(792, 604)
+[node name="slime5" parent="Slimes" instance=ExtResource("7_g1ysq")]
+position = Vector2(464, 533)
 
 [node name="Mushtrap" type="Node2D" parent="."]
 
@@ -689,8 +682,5 @@ position = Vector2(432, 168)
 
 [node name="DeployableBox" parent="." instance=ExtResource("13_hugqj")]
 position = Vector2(400, 168)
-
-[node name="Redslime" parent="." instance=ExtResource("7_g1ysq")]
-position = Vector2(872, 432)
 
 [connection signal="playerDied" from="Player" to="." method="_on_player_player_died"]

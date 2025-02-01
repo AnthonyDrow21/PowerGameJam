@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6nlxlcu70ekt"]
+
+[ext_resource type="Texture2D" uid="uid://d3ck3w4xqxc4j" path="res://Assets/sprites/Minerman-Adventure/terrain/Sprite-0001.png" id="1_xqvrt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p3pbx"]
+size = Vector2(16, 16)
+
+[node name="Area2D" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("1_xqvrt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_p3pbx")

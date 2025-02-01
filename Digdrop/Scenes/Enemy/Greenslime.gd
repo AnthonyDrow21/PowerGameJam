@@ -1,11 +1,17 @@
 extends Node2D
 
-var SPEED = 60
+var SPEED = 20
 
 var direction = -1
 
+@onready var player = get_parent().get_node("player")
+
+const goopGuck = preload("res://Scenes/Enemy/goopGuck.tscn");
+
+@onready var game = get_tree().get_root();
 @onready var ray_cast_left = $RayCastLeft
 @onready var ray_cast_right = $RayCastRight
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -13,7 +19,18 @@ func _process(delta):
 		direction = -1
 	if ray_cast_left.is_colliding():
 		direction = 1
-
 	position.x += SPEED * delta * direction
+	
+	#if player.position < 500:
+		#shoot_goop()
+
+func shoot_goop():
+	var goopShoot = goopGuck.instantiate();
+	game.addchild(goopShoot);
+	
+
+
+	
+	
 	
 	
