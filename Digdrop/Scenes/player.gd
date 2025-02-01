@@ -7,7 +7,6 @@ const SPEED = 130.0
 
 @export var MAX_JUMPS = 1;
 var JUMP_COUNT = MAX_JUMPS;
-
 var isDead = false;
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -30,7 +29,10 @@ func _physics_process(delta):
 	if(Input.is_action_just_pressed("UseItem")):
 		# Use the current active item.
 		var newBox = deployedBox.instantiate();
-		newBox.global_position = self.position;
+		if animated_sprite.flip_h == false:
+			newBox.global_position = self.position + Vector2(20,0);
+		else:
+			newBox.global_position = self.position + Vector2(-20,0)
 		game.add_child(newBox);
 	
 	# Game over if the drill runs out of energy.

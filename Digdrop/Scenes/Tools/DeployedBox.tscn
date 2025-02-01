@@ -24,9 +24,10 @@ size = Vector2(26, 26)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 1)
+scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_yn3ua")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
-scale = Vector2(0.91, 0.91)
+scale = Vector2(0.75, 0.75)
 shape = SubResource("RectangleShape2D_ul71p")
