@@ -15,6 +15,9 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 const deployedBox = preload("res://Scenes/Tools/DeployedBox.tscn");
 @onready var game = get_tree().get_root();
 
+#Used for animation handling in handleMovement function.
+@onready var animated_sprite = $AnimatedSprite2D
+
 func _ready() -> void:
 	for item in PlayerStats.Items:
 		if(item.name == "JetPack"):
@@ -40,7 +43,7 @@ func handleMovement(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
-
+		
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_up") and JUMP_COUNT > 0:
 		velocity.y = JUMP_VELOCITY
@@ -54,6 +57,22 @@ func handleMovement(delta):
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_axis("ui_left", "ui_right")
+	
+	#animation handling
+	if direction > 0:
+		animated_sprite.flip_h = false
+	elif direction < 0:
+		animated_sprite.flip_h = true
+	
+	#Play Animation
+	if is_on_floor():
+		if direction == 0:
+			animated_sprite.play("Idle")
+		else:
+			animated_sprite.play("Run")
+	else:
+		animated_sprite.play("Jump")
+	
 	if direction:
 		velocity.x = direction * SPEED
 	else:
