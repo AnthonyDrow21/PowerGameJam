@@ -26,7 +26,9 @@ func _ready() -> void:
 func _physics_process(delta):
 	handleMovement(delta);
 	
-	if(Input.is_action_just_pressed("UseItem")):
+	# Check that we have the box tool before we let the player spawn a box.
+	var boxTool = self.get_node_or_null("DeployableBox");
+	if(Input.is_action_just_pressed("UseItem") and boxTool != null):
 		# Use the current active item.
 		var newBox = deployedBox.instantiate();
 		if animated_sprite.flip_h == false:
