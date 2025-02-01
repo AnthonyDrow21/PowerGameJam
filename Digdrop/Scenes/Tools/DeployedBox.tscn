@@ -20,7 +20,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ul71p"]
 size = Vector2(26, 26)
 
-[node name="DeployedBox" type="RigidBody2D"]
+[node name="DeployedBox" type="RigidBody2D" groups=["Deployable"]]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 1)

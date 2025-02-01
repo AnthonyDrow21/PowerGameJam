@@ -15,4 +15,7 @@ func _process(delta: float) -> void:
 
 func _on_player_player_died() -> void:
 	PlayerStats.DrillEnergy = PlayerStats.MaxEnergy;
+	var depoloyables = get_tree().get_nodes_in_group("Deployable");
+	for deployable in depoloyables:
+		deployable.queue_free();
 	pass # Replace with function body.
