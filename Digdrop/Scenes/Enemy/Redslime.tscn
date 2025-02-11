@@ -91,10 +91,10 @@ script = ExtResource("1_iwk08")
 [node name="Killzone" parent="." instance=ExtResource("2_fdu1e")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
-position = Vector2(0, 6)
 shape = SubResource("RectangleShape2D_p4j1w")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_roxuw")
 autoplay = "default"
 frame_progress = 0.587804
@@ -108,5 +108,9 @@ target_position = Vector2(-7, 0)
 [node name="goopCD" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
+
+[node name="RayCastDownRight" type="RayCast2D" parent="."]
+position = Vector2(6, 0)
+target_position = Vector2(0, 7)
 
 [connection signal="timeout" from="goopCD" to="." method="_on_timer_timeout"]
