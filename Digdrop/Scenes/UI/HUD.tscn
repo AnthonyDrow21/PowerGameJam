@@ -23,14 +23,31 @@ height = 25
 [node name="Hud" type="CanvasLayer"]
 script = ExtResource("1_p1y8c")
 
-[node name="DrillEnergy" type="TextureProgressBar" parent="."]
-offset_right = 200.0
-offset_bottom = 25.0
-texture_under = SubResource("GradientTexture2D_ypbj0")
-texture_progress = SubResource("GradientTexture2D_8g3de")
-
 [node name="EnergyTimer" type="Timer" parent="."]
 wait_time = 0.5
 autostart = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="DrillEnergy" type="TextureProgressBar" parent="VBoxContainer"]
+layout_mode = 2
+texture_under = SubResource("GradientTexture2D_ypbj0")
+texture_progress = SubResource("GradientTexture2D_8g3de")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="CoinLabel" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+text = "Coins:"
+
+[node name="CoinTotal" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
 
 [connection signal="timeout" from="EnergyTimer" to="." method="_on_energy_timer_timeout"]

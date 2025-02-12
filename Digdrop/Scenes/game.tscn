@@ -462,7 +462,7 @@ _data = {
 gradient = SubResource("Gradient_4xpk4")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3lo4c"]
-size = Vector2(23.0321, 23.0465)
+size = Vector2(38.0762, 63.2034)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gques"]
 
@@ -711,7 +711,8 @@ texture = SubResource("GradientTexture2D_eiewl")
 position = Vector2(1.98804, -2.68274)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Mushtrap/MushGlow3/Killzone"]
-position = Vector2(8.53882, 1.72)
+position = Vector2(10.7981, 2.0188)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_3lo4c")
 
 [node name="MushGlow4" type="PointLight2D" parent="Mushtrap"]
@@ -727,7 +728,6 @@ position = Vector2(15.2306, 3.51129)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Mushtrap/MushGlow4/Killzone"]
 position = Vector2(3.71472, -0.987732)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_3lo4c")
 
 [node name="Killgoop" type="PointLight2D" parent="."]

@@ -3,13 +3,14 @@ extends CanvasLayer
 
 func _ready() -> void:
 	#Initialize the stats for the timer.
-	$DrillEnergy.max_value = PlayerStats.MaxEnergy;
-	$DrillEnergy.value = PlayerStats.DrillEnergy;
+	$VBoxContainer/DrillEnergy.max_value = PlayerStats.MaxEnergy;
+	$VBoxContainer/DrillEnergy.value = PlayerStats.DrillEnergy;
 	pass
 
 func _process(delta: float) -> void:
 	# Update the energy progress bar value every frame.
-	$DrillEnergy.value = PlayerStats.DrillEnergy;
+	$VBoxContainer/DrillEnergy.value = PlayerStats.DrillEnergy;
+	$VBoxContainer/HBoxContainer/CoinTotal.text = "%d" % [PlayerStats.CoinCount];
 	pass
 
 
