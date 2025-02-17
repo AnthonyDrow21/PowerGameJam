@@ -63,10 +63,10 @@ target_position = Vector2(7, 0)
 [node name="RayCastLeft" type="RayCast2D" parent="."]
 target_position = Vector2(-7, 0)
 
-[node name="RayCastDownLeft" type="RayCast2D" parent="."]
+[node name="FloorCheckLeft" type="RayCast2D" parent="."]
 position = Vector2(-6, 0)
 target_position = Vector2(0, 7)
 
-[node name="RayCastDownRight" type="RayCast2D" parent="."]
+[node name="FloorCheckRight" type="RayCast2D" parent="."]
 position = Vector2(6, 0)
 target_position = Vector2(0, 7)
