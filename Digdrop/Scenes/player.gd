@@ -24,7 +24,8 @@ func _ready() -> void:
 			MAX_JUMPS = 2;
 
 func _physics_process(delta):
-	handleMovement(delta);
+	if isDead == false:
+		handleMovement(delta);
 	
 	# Check that we have the box tool before we let the player spawn a box.
 	var boxTool = self.get_node_or_null("DeployableBox");
@@ -62,20 +63,8 @@ func handleMovement(delta):
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_axis("ui_left", "ui_right")
 	
-	#animation handling
-	if direction > 0:
-		animated_sprite.flip_h = false
-	elif direction < 0:
-		animated_sprite.flip_h = true
-	
-	#Play Animation
-	if is_on_floor():
-		if direction == 0:
-			animated_sprite.play("Idle")
-		else:
-			animated_sprite.play("Run")
-	else:
-		animated_sprite.play("Jump")
+	# Sets the animation for the character.
+	handleAnimation(direction);
 	
 	if direction:
 		velocity.x = direction * SPEED
@@ -89,6 +78,26 @@ func PlayerDied():
 	# Play the death animation of the player.
 	isDead = true;
 	$DeathTimer.start()
+	pass;
+
+func handleAnimation(direction):
+		#animation handling
+	if direction > 0:
+		animated_sprite.flip_h = false
+	elif direction < 0:
+		animated_sprite.flip_h = true
+	
+	#Play Animation
+	if isDead == true:
+		animated_sprite.play("Death");
+	elif is_on_floor():
+		if direction == 0:
+			animated_sprite.play("Idle")
+		else:
+			animated_sprite.play("Run")
+		animated_sprite.play("Death");
+	else:
+		animated_sprite.play("Jump")
 	pass;
 
 func setMaxJumps(maxJumps: int):

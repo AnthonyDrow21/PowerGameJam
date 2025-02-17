@@ -18,7 +18,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ul71p"]
-size = Vector2(26, 26)
+size = Vector2(21.3333, 21.3333)
 
 [node name="DeployedBox" type="RigidBody2D" groups=["Deployable"]]
 
@@ -28,6 +28,6 @@ scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_yn3ua")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1)
+position = Vector2(0, 2.38419e-07)
 scale = Vector2(0.75, 0.75)
 shape = SubResource("RectangleShape2D_ul71p")
