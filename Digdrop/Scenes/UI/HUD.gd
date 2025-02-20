@@ -17,5 +17,5 @@ func _process(delta: float) -> void:
 # On timout, reduce the energy of the drill. 
 func _on_energy_timer_timeout() -> void:
 	PlayerStats.DrillEnergy = PlayerStats.DrillEnergy - 1.0;
-	print("Energy Reduced! Current Energy: ", PlayerStats.DrillEnergy);
+	#print("Energy Reduced! Current Energy: ", PlayerStats.DrillEnergy);
 	pass

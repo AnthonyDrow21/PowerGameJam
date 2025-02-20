@@ -24,8 +24,7 @@ func _ready() -> void:
 			MAX_JUMPS = 2;
 
 func _physics_process(delta):
-	if isDead == false:
-		handleMovement(delta);
+	handleMovement(delta);
 	
 	# Check that we have the box tool before we let the player spawn a box.
 	var boxTool = self.get_node_or_null("DeployableBox");
@@ -41,6 +40,9 @@ func _physics_process(delta):
 	# Game over if the drill runs out of energy.
 	if(PlayerStats.DrillEnergy == 0.0):
 		PlayerDied();
+	
+	# Sets the animation for the character.
+	handleAnimation();
 	
 	move_and_slide()
 
@@ -63,25 +65,30 @@ func handleMovement(delta):
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_axis("ui_left", "ui_right")
 	
-	# Sets the animation for the character.
-	handleAnimation(direction);
-	
 	if direction:
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+		
+	# We only want to maintain horizontal movement if we're alive. Keep the y movement in case
+	# we die in mid air.
+	if isDead == true:
+		velocity.x = 0;
 
 func getIsDead():
 	return isDead;
 
 func PlayerDied():
-	# Play the death animation of the player.
+	# Set our movement to 0 when we die so that the character does not keep moving when dying.
 	isDead = true;
+	velocity.x = 0;
+	
 	$DeathTimer.start()
 	pass;
 
-func handleAnimation(direction):
-		#animation handling
+func handleAnimation():
+	#animation handling
+	var direction = Input.get_axis("ui_left", "ui_right")
 	if direction > 0:
 		animated_sprite.flip_h = false
 	elif direction < 0:
@@ -90,12 +97,11 @@ func handleAnimation(direction):
 	#Play Animation
 	if isDead == true:
 		animated_sprite.play("Death");
-	elif is_on_floor():
+	elif is_on_floor() == true:
 		if direction == 0:
 			animated_sprite.play("Idle")
 		else:
 			animated_sprite.play("Run")
-		animated_sprite.play("Death");
 	else:
 		animated_sprite.play("Jump")
 	pass;
